@@ -17,8 +17,10 @@
             <!-- sql formatting -->
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
+            <!-- 기존 테이블 drop 후 재 생성 -->
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create"/> -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <!-- [설정 크기] 만큼 모았다가 한 번에 내보내는 기능-->
+            <!-- [설정 크기] 만큼 모았다가 한 번에 내보내는 기능 -->
             <property name="hibernate.jdbc.batch_size" value="10"/>
         </properties>
     </persistence-unit>
