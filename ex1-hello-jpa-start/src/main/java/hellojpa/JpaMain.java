@@ -2,6 +2,8 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -23,11 +25,11 @@ public class JpaMain {
 //            member.setId(2L);
 //            member.setName("Dan");
 //            em.persist(member);
-            
+
             // [2] 멤버 조회
-            Member findMember = em.find(Member.class, 1L);
-            System.out.println("findMember.getId() = " + findMember.getId());
-            System.out.println("findMember.getName() = " + findMember.getName());
+//            Member findMember = em.find(Member.class, 1L);
+//            System.out.println("findMember.getId() = " + findMember.getId());
+//            System.out.println("findMember.getName() = " + findMember.getName());
 
             // [3] 멤버 삭제
 //            em.remove(findMember);
@@ -36,9 +38,19 @@ public class JpaMain {
             // persist 안해도 JPA가 자동으로 update 쳐준다.
 //            findMember.setName("DK");
 
+            // [JPQL 예시]
+            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+                    .setFirstResult(1) // pagination
+                    .setMaxResults(10) // pagination
+                    .getResultList();
+
+            for (Member member : result) {
+                System.out.println("member = " + member.getName());
+            }
+
             tx.commit();
             // transaction end
-        } catch (Exception e){
+        } catch (Exception e) {
             tx.rollback();
         } finally {
             em.close();
