@@ -16,8 +16,10 @@
             <property name="hibernate.show_sql" value="true"/>
             <!-- sql formatting -->
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.use_sql_comments"  value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- [설정 크기] 만큼 모았다가 한 번에 내보내는 기능-->
+            <property name="hibernate.jdbc.batch_size" value="10"/>
         </properties>
     </persistence-unit>
 
