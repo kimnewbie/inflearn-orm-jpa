@@ -21,9 +21,11 @@ public class JpaMain {
 
         try {
             // [1] 멤버 저장
+            // 비영속 상태
 //            Member member = new Member();
 //            member.setId(2L);
 //            member.setName("Dan");
+            // 영속 상태
 //            em.persist(member);
 
             // [2] 멤버 조회
@@ -39,15 +41,16 @@ public class JpaMain {
 //            findMember.setName("DK");
 
             // [JPQL 예시]
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(1) // pagination
-                    .setMaxResults(10) // pagination
-                    .getResultList();
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//                    .setFirstResult(1) // pagination
+//                    .setMaxResults(10) // pagination
+//                    .getResultList();
+//
+//            for (Member member : result) {
+//                System.out.println("member = " + member.getName());
+//            }
 
-            for (Member member : result) {
-                System.out.println("member = " + member.getName());
-            }
-
+            // 실제로 쿼리를 날리는 부분
             tx.commit();
             // transaction end
         } catch (Exception e) {
