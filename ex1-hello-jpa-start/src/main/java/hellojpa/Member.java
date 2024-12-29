@@ -20,6 +20,7 @@ public class Member {
 
     private int age;
 
+    // ## 객체를 테이블에 맞추어 모델링 한 부분
     @Column(name = "TEAM_ID")
     private Long teamId;
 
