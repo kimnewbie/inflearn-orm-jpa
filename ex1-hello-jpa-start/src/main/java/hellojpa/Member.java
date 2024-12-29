@@ -20,16 +20,17 @@ public class Member {
 
     private int age;
 
-    // ## 객체를 테이블에 맞추어 모델링 한 부분
-    @Column(name = "TEAM_ID")
-    private Long teamId;
+    // 이 어노테이션으로 JPA에 관계를 알려줘야해
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
-    public Long getTeamId() {
-        return teamId;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 //    @ManyToOne
 //    @JoinColumn(name = "TEAM_ID")
