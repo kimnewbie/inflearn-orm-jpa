@@ -31,8 +31,12 @@ public class Member {
         return team;
     }
 
-    public void setTeam(Team team) {
+    public void changeTeam(Team team) {
         this.team = team;
+
+        // TIP! 양방향에 넣어주는 것을 잊는 경우가
+        // 많아서 여기에 넣어주면 편하다.
+        team.getMembers().add(this);
     }
 //    @ManyToOne
 //    @JoinColumn(name = "TEAM_ID")
