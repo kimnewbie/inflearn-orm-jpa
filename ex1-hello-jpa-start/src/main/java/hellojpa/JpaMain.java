@@ -20,26 +20,25 @@ public class JpaMain {
         tx.begin(); // [트랜잭션] 시작
 
         try {
-            //팀 저장
+            // 팀 저장
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
-            //회원 저장
+            // 회원 저장
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team);
+
+            // 연관관계의 주인 값 설정
+            // team.setMembers(member); = null
+            member.setTeam(team); // **
+
+            // 역방향(주인이 아닌 방향)만 연관관계 설정
+            team.getMembers().add(member);
+
             em.persist(member);
 
             em.flush();
             em.clear();
-            
-            Member findMember = em.find(Member.class, member.getId());
-            List<Member> members = findMember.getTeam().getMembers();
-
-            for (Member m : members) {
-                System.out.println("m = " + m.getUsername());
-            }
-
 
             tx.commit(); // [트랜잭션] 커밋
             // transaction end
