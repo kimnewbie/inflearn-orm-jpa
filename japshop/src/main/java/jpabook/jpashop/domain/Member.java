@@ -13,7 +13,7 @@ public class Member {
     @Column(name = "MEMBER_ID")
     private Long id;
     private String name;
-    private String cith;
+    private String city;
     private String street;
     private String zipcode;
 
@@ -28,8 +28,8 @@ public class Member {
         this.name = name;
     }
 
-    public void setCith(String cith) {
-        this.cith = cith;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public void setStreet(String street) {
@@ -48,8 +48,8 @@ public class Member {
         return name;
     }
 
-    public String getCith() {
-        return cith;
+    public String getCity() {
+        return city;
     }
 
     public String getStreet() {
