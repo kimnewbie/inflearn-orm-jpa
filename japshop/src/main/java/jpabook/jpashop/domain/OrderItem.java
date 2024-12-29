@@ -19,6 +19,9 @@ public class OrderItem {
     @Column(name = "ITEM_ID")
     private Long itemId;
 
+    private int orderPrice;
+    private int count;
+
     public OrderItem() {
     }
 
@@ -32,6 +35,22 @@ public class OrderItem {
 
     public void setItemId(Long itemId) {
         this.itemId = itemId;
+    }
+
+    public int getOrderPrice() {
+        return orderPrice;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setOrderPrice(int orderPrice) {
+        this.orderPrice = orderPrice;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public Long getId() {
