@@ -16,11 +16,13 @@ public class Member {
     private Long id;
 
     @Column(name = "USERNAME")
-    private String name;
+    private String username;
 
     private int age;
 
     // 이 어노테이션으로 JPA에 관계를 알려줘야해
+    // 외래 키가 있는 곳이 주인
+    // 연관관계의 주인O
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;
@@ -47,12 +49,12 @@ public class Member {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public int getAge() {
